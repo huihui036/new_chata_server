@@ -28,18 +28,18 @@
 
     ws = null
 
-    //  ws = new WebSocket('ws://127.0.0.1:3002')
+  //  ws = new WebSocket('ws://127.0.0.1:3002')
     bt.onclick = function () {
-        ws = new WebSocket('ws://127.0.0.1:3003')
+       ws = new WebSocket('ws://127.0.0.1:3003')
         console.log("连接成")
+
 
         ws.onopen = function () {
             console.log("12345646")
             ws.send(JSON.stringify(
-                {
-                    id:1,
-                    news_receiveId: ["1", "2"],
+                {news_receiveId:["3","4"],
                     type: "setname",
+                    id :3,
                     name: names.value
                 }
             ))
@@ -47,14 +47,14 @@
 
         send.onclick = function () {
             ws.send(JSON.stringify({
-                news_receiveId: ["1", "2"],
+                news_receiveId:["3","4"],
                 text: texts.value,
                 name: names.value,
-                id :1,
+                id :3,
                 type: "textsay"
             }))
         }
-
+        
         ws.onmessage = function (e) {
             console.log(e)
             console.log(e.data)
@@ -64,6 +64,13 @@
         }
 
     }
+
+
+
+
+
+
+
 
 
 

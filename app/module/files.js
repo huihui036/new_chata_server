@@ -1,5 +1,5 @@
 const mongoose=require('mongoose');
-const {filesDict} = require('../../config/dict')
+const {filesDict} = require('../../config/schema')
 
 
 

@@ -1,7 +1,8 @@
 const mongoose=require('mongoose');
-const {newsDict} = require('../../config/dict')
+const {newsDict} = require('../../config/schema')
 
-const News=mongoose.model('news',newsDict)
+var News=mongoose.model('news',newsDict)
+
 
 
 module.exports = {News}

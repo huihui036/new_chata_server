@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 
-const {Groupdict} = require('../../config/dict')
+const {Groupdict} = require('../../config/schema')
 
 const Groupmodel=mongoose.model('group',Groupdict)
 let Group=new Groupmodel({

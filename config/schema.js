@@ -1,11 +1,14 @@
+const  {Schema}  = require("mongoose")
+
 //  表情包
-emjioDict = {
+var emjioDict = new Schema( {
     emjio_id: Number,
     emjio_content: String,
-    emjio_fielsId: Number,
-}
+    emjio_fielsUrl: String
+})
+
 // 文件
-filesDict = {
+var filesDict =  new Schema({
     files_id: Number,
     files_names: String,
     files_url: String,
@@ -14,10 +17,10 @@ filesDict = {
     files_stateCode: Number,
     files_hash: String,
     files_thumbnailUrl: String // 缩略图
-}
+})
 
 // 群组
-Groupdict = {
+ var Groupdict = new Schema({
     group_name: String,
     creat_time: String,
     creat_userId: Number,
@@ -29,10 +32,12 @@ Groupdict = {
     headportrait: String,
     type: String,
     statecode: Number,
-}
+})
+
+
 
 // 消息
-newsDict = {
+var newsDict =new Schema({
     news_content: String,//消息内容
     news_type: String, //消息类型
     news_senderId: Number,// 发送人id
@@ -44,7 +49,11 @@ newsDict = {
     news_forwardId: Number,// 转发消息ID
     news_commentlist: Array,// 评论列表
     news_tips: Array, // @ 人
-}
+})
+
+
+
+
 
 
 module.exports = {

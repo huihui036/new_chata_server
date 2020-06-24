@@ -18,11 +18,7 @@ db.on('error',()=>{
     console.log('链接失败！-error')
 });
  
-//创建一个模型类，P相当于类名 dict里面的键名就是类属性名
-//有点特殊的就是不能直接用括号里的P,而是赋值给另外一个变量或者是常量
-//然后用P实例一个对象p并赋值，也可以用p.属性名来赋值
-// const P=mongoose.model('Per',dict)
-// let p=new P({name:'mimi',age:128,pwd:'123434'});
+
 
 
  
