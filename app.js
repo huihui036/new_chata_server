@@ -30,9 +30,10 @@ app.use(staticFiles(path.resolve(__dirname, "./public")))
 
 
 
-var emjios = require('./app/module/emoji')
+//var emjios = require('./app/module/emoji')
+var chatclass = require("./app/module/chatclass")
 
-
+//var guulass = require("./app/module/groups")
 
 
 app.listen(3001)

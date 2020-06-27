@@ -6,19 +6,19 @@ const Emjiomodel = mongoose.model('emjio', emjioDict)
 
 async function getdatas() {
     var file = 'static/format.json'
-    let jsonData = {}
-    await new Promise((resolve, reject) => {
+
+    return new Promise((resolve, reject) => {
         fs.readFile(file, 'utf-8', (err, data) => {
             if (err) {
                 ctx.throw(err)
             } else {
-                jsonData = data
-                resolve()
+             
+                resolve(data)
             }
         });
     })
     //let jsonDatas = JSON.parse(jsonData)
-    return jsonData
+  
 }
 async function uplouada() {
     var data = await getdatas()

@@ -22,16 +22,23 @@ var filesDict =  new Schema({
 // 群组
  var Groupdict = new Schema({
     group_name: String,
-    creat_time: String,
-    creat_userId: Number,
-    administrator_Id: Number,
-    company: String,
-    member_ID: Number,
-    introduction: String,
-    notice: String,
-    headportrait: String,
-    type: String,
-    statecode: Number,
+    group_creatTime: String,
+    group_creatUserId: Number,
+    group_administratorId: Array,
+    group_company: String,
+    group_memberListID: Array,
+    group_introduction: String,  // 简介
+    group_notice: String,
+    group_headportrait: String,
+    group_type: String,
+    group_statecode: Number,
+})
+
+// 聊天室
+var ChatClass = new Schema({
+    
+    chatclass_names :Array,
+    
 })
 
 
@@ -49,6 +56,8 @@ var newsDict =new Schema({
     news_forwardId: Number,// 转发消息ID
     news_commentlist: Array,// 评论列表
     news_tips: Array, // @ 人
+    //加
+    news_friendID:Number,
 })
 
 
@@ -60,5 +69,7 @@ module.exports = {
     emjioDict,
     filesDict,
     Groupdict,
-    newsDict
+    newsDict,
+
+    ChatClass
 }
