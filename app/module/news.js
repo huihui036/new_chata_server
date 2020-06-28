@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { newsDict } = require('../../config/schema')
+const { newsDict } = require('./schema')
 
 var News = mongoose.model('news', newsDict)
 
@@ -18,7 +18,9 @@ class NewsModel {
             news_forwardId: 2,// 转发消息ID
             news_commentlist: [1, 2],// 评论列表
             news_tips: [1, 2], // @ 人
-            news_friendID: 2 //好友id
+            news_friendID: 2, //好友id
+            news_belongGroupId: 1,
+            news_filesId: 1
         }, (err, res) => {
             if (err) {
                 console.log(err)

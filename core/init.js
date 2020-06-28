@@ -10,7 +10,6 @@ class InitManager {
     InitManager.Loadconfig()
   }
   static initLoadRouter () {
-
     let pathapi = `${process.cwd()}/app/router`  // 使用绝对路径
 
     requireDirectory(module, pathapi, { visit: visitor });
@@ -22,13 +21,11 @@ class InitManager {
     }
   }
 
-
   static Loadconfig (path = '') {
     const confipath = path || `${process.cwd()}/config/config.js`  // 使用绝对路径
     const config = require(confipath)
     global.config = config
   }
-
 
 }
 module.exports = InitManager

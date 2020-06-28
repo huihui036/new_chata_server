@@ -3,11 +3,10 @@ module.exports = {
     environment: "dev",
     dbdata: {
       daname: "chatadb",
-      user: "mongodb",
-      host: "localhost/data/db",
+      host: "mongodb://localhost:27017/",
       port: "27017",
-      passdord: null
+    
     },
-    privateKey:'tonkens123456'
- 
+  
+
   }
