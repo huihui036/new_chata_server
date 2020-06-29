@@ -45,6 +45,7 @@
             ws.send(JSON.stringify(
                 {
                     id:1,
+                    news_senderId:1,
                     news_receiveId: ["3", "4"],
                     type: "setname",
                     name: names.value
@@ -67,6 +68,7 @@
             ws.send(JSON.stringify({           
                  //消息内容
             news_content: texts.value,
+
             news_type: "String", //消息类型
             news_senderId: 1,// 发送人id
             news_receiveId: ["3", "4"],//接收人

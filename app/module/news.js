@@ -19,7 +19,7 @@ class NewsModel {
             news_commentlist: [1, 2],// 评论列表
             news_tips: [1, 2], // @ 人
             news_friendID: 2, //好友id
-            news_belongGroupId: 1,
+            news_belongGroupId: meassagedata.news_belongGroupId,
             news_filesId: 1
         }, (err, res) => {
             if (err) {
@@ -31,18 +31,10 @@ class NewsModel {
 
     }
     // 获取聊天记录---传递消息接收人消息数组
-    getmessagedata(uid, fid) {
+    getmessagedata(belongGroupId) {
         return new Promise((resolve, reject) => {
             News.find({
-                $or: [{
-                    news_senderId: uid,
-                    news_friendID: fid
-                },
-                {
-                    news_senderId: fid,
-                    news_friendID: uid,
-                }
-                ]
+                news_belongGroupId:belongGroupId
 
             }, (err, res) => {
                 if (err) {

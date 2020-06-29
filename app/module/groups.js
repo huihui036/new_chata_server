@@ -17,7 +17,8 @@ class Groupmodels {
             group_headportrait: 'htts://xxx.xx.群头像图片链接',
             group_type: "闲聊类型",
             group_statecode: 1001,
-         
+            group_onlineuser: [1, 2, 3],
+
         });
         //用save保存
         Group.save().then(() => {
@@ -28,13 +29,12 @@ class Groupmodels {
 
     }
     //查找群
-    groupfind(group_name) {
+    groupfind(memberList) {
         return new Promise((resolve, reject) => {
-            Groupmodel.find({ group_name }, (err, res) => {
+            Groupmodel.find({ group_memberListID: memberList }, (err, res) => {
                 if (err) {
-                    console.log("查找失败",err)
+                    console.log("查找失败", err)
                 } else {
-                    console.log(res)
                     resolve(res)
                 }
             })
@@ -42,6 +42,7 @@ class Groupmodels {
     }
     // 创建群
     groupcreat(Gropudata) {
+        console.log("====", Gropudata)
         return new Promise((resolve, reject) => {
             Groupmodel.create(Gropudata, (err, res) => {
                 if (err) {
@@ -50,6 +51,61 @@ class Groupmodels {
                     resolve(res)
                 }
             })
+        })
+    }
+
+    // 计算组组个数 实现id 自增
+    getconte() {
+        return new Promise((reslove, reject) => {
+            Groupmodel.countDocuments({}, (err, res) => {
+                if (err) {
+                    reslove(0)
+                } else {
+                    reslove(res + 1)
+                }
+            })
+
+        })
+    }
+
+
+    // 修改在线人员数组
+
+    // 添加
+    grouponlieAdd(id, senderId) {
+        var wherestr = { 'group_memberListID': [1, 2] }
+        console.log("---")
+        return new Promise((resolve, reject) => {
+            Groupmodel.updateOne({ _id: id }, {
+                '$push': {
+                    group_onlineuser: [senderId]
+                }
+            }, (err, res) => {
+                if (err) {
+                    resolve("添加在线失败")
+                } else {
+                    console.log(res)
+                    resolve(res)
+                }
+
+            })
+
+        })
+
+    }
+
+    grouponLineremove(id, senderId){
+        Groupmodel.updateOne({_id: id},{
+            $pull:{
+                group_onlineuser: senderId
+            }
+        },(err,res)=>{
+            if(err){
+                console.log("删除失败");
+                
+            }else{
+                console.log("-------",res)
+            }
         })
     }
 

@@ -10,6 +10,7 @@ var emjioDict = new Schema({
 
 // 群组
 var groupDict = new Schema({
+    group_id :Number,
     // 群名称
     group_name: {
         type: String,
@@ -18,7 +19,7 @@ var groupDict = new Schema({
     //创建人id
     group_creatUserId: {
         type: Number,
-        required: true
+      
     },
     //群头像
     group_headportrait: {
@@ -33,6 +34,7 @@ var groupDict = new Schema({
     group_notice: String,
     group_type: String,
     group_statecode: Number,
+    group_onlineuser:Array,
 })
 
 // 聊天室
@@ -62,7 +64,7 @@ var newsDict = new Schema({
     news_commentlist: Array,// 评论列表
     news_tips: Array, // @ 人
     //加
-    news_belongGroupId: Number,
+    news_belongGroupId: String,
     news_filesId: Number
 })
 

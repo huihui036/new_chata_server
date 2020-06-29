@@ -44,8 +44,8 @@
             console.log("12345646")
             ws.send(JSON.stringify(
                 {
-                    id: 2,
-                    news_senderId: 2,
+                    id: 1,
+                    news_senderId: 1,
                     
                     news_receiveId: ["1", "2"],
                     type: "setname",
@@ -70,7 +70,7 @@
                 //消息内容
                 news_content: texts.value,
                 news_type: "String", //消息类型
-                news_senderId: 2,// 发送人id
+                news_senderId: 1,// 发送人id
                 news_receiveId: ["1", "2"],//接收人
                 news_times: Date.now(),//发送时间
                 news_statecode: 1001,//消息状态
@@ -79,7 +79,7 @@
                 news_forwardId: 2,// 转发消息ID
                 news_commentlist: [1, 2],// 评论列表
                 news_tips: [1, 2], // @ 人 
-               
+             
                 news_filesId: 1
             }))
         }
